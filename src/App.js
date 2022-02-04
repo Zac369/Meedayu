@@ -1,5 +1,5 @@
 import React from 'react';
-import MediaView from './components/MediaView';
+import MediaView from './components/MediaView/MediaView';
 
 
 function App () {
