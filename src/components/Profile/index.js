@@ -10,6 +10,7 @@ import {
   SubscribeButton,
   ImageContainer,
 } from "./ProfileElements";
+import NavBar from '../NavBar';
 
 const Profile = () => {
   const [images, setImages] = useState([]);
@@ -18,6 +19,7 @@ const Profile = () => {
   }, []);
   return (
     <>
+      <NavBar />
       <ProfileTopContainer>
         <ProfileInnerContainer>
           <ProfileImageContainer></ProfileImageContainer>
