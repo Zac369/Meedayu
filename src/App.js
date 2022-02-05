@@ -1,14 +1,25 @@
-import React from 'react';
-import MediaView from './components/MediaView/MediaView';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { LoginPage, HomePage, ProfilePage, MediaViewPage } from "./pages";
+
+const App = () => {
+
+    return (
+        <BrowserRouter>
+            <Routes>
+
+              <Route index element={<HomePage />} />
+              <Route path="profile" element={<ProfilePage />} />
+              <Route path="mediaview" element={<MediaViewPage />} />
+              <Route path="login" element={<LoginPage />} />
+
+            </Routes>
+            
+        </BrowserRouter>
 
 
-function App () {
-
-	return (
-		<MediaView />
-
-		);
-
-}
+        )
+  
+};
 
 export default App;
