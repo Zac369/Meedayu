@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import Axios from "axios";
 import {
   ProfileTopContainer,
   ProfileInnerContainer,
@@ -13,19 +13,23 @@ import {
 
 const Profile = () => {
   const [images, setImages] = useState([]);
-  useEffect(() => {
-    
-  }, []);
+  useEffect(async () => {
+    const res = await Axios.get(
+      "https://api.unsplash.com/photos/?client_id=l2U-D_PXXujBJoRiCCMCL2ifi_5ZJcK4AC0WH-A2lKk"
+    );
+      const data = res.data
+    // setting images
+    setImages(data);
+  }, [images]);
   return (
     <>
       <ProfileTopContainer>
         <ProfileInnerContainer>
           <ProfileImageContainer></ProfileImageContainer>
           <ProfileInfoContainer>
-            <ProfileName>Gourav Kumar</ProfileName>
+            <ProfileName>John Doe</ProfileName>
             <ProfileAddress>0x3...7c</ProfileAddress>
             <SubscribeButton onClick={console.log("clicked")}>
-              {" "}
               Subscribe
             </SubscribeButton>
           </ProfileInfoContainer>
