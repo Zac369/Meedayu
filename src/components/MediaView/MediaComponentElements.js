@@ -28,9 +28,10 @@ export const Profile = styled.div`
 export const Comments = styled.div`
   background: blue;
   grid-area: comments;
+  overflow: auto;
+
 `;
 
 export const InputComment = styled.input`
-  background: green;
   grid-area: inputComment;
 `;
