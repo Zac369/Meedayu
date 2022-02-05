@@ -1,4 +1,6 @@
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 var path = require('path');
 
 module.exports = {
@@ -32,6 +34,7 @@ module.exports = {
   	historyApiFallback: true,
   },
   plugins: [
+    new NodePolyfillPlugin(),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
