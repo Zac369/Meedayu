@@ -1,5 +1,132 @@
-* {
+
+@import url('./bootstrap-social.css');
+
+/* LOGIN PAGE */
+
+
+#body-loading {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: #000;
 }
+.middle {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+.bar {
+  width: 10px;
+  height: 70px;
+  background: #fff;
+  display: inline-block;
+  transform-origin: bottom center;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  /*   box-shadow:5px 10px 20px inset rgba(255,23,25.2); */
+  animation: loader 1.2s linear infinite;
+}
+.bar1 {
+  animation-delay: 0.1s;
+}
+.bar2 {
+  animation-delay: 0.2s;
+}
+.bar3 {
+  animation-delay: 0.3s;
+}
+.bar4 {
+  animation-delay: 0.4s;
+}
+.bar5 {
+  animation-delay: 0.5s;
+}
+.bar6 {
+  animation-delay: 0.6s;
+}
+.bar7 {
+  animation-delay: 0.7s;
+}
+.bar8 {
+  animation-delay: 0.8s;
+}
+
+@keyframes loader {
+  0% {
+    transform: scaleY(0.1);
+    background: black ;
+  }
+  50% {
+    transform: scaleY(1);
+    background: yellowgreen;
+  }
+  100% {
+    transform: scaleY(0.1);
+    background: transparent;
+  }
+}
+
+#login-logo{
+  margin-right: 10px;
+}
+
+#login-div {
+  display: flex;
+  flex-direction: column;
+  margin: 14px;
+  justify-content: center;
+}
+
+.login-buttons {
+  margin: 10px auto 2px auto;
+  width: 360px;
+}
+.login-images{
+  height: 50px;
+  width: 285px;
+}
+
+
+/* PROFILE */
+
+#profileGen{
+  margin: 20px;
+}
+
+#image-container {
+  display: block;
+  margin: 0 auto;
+  width: 70vw;
+  min-width: 50rem;
+}
+.profile-images{
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover;
+  margin: 4px;
+}
+
+#add-subs {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 60px;
+}
+#subscribe{
+  background: #62b4ff;
+  border-radius: 20px;
+  color: #fff;
+  border: none;
+}
+#name{
+  /* font-size: 2rem;
+  font-weight: 500;
+  margin: 1rem 2rem; */
+}
+#address{
+  /* padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  border-radius: 10px;
+  background: #efefef; */
+}
+

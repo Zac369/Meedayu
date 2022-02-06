@@ -43,30 +43,46 @@ const Profile = () => {
   }, []);
 
   return (
-    <>
-      <ProfileTopContainer>
-        <ProfileInnerContainer>
-          <ProfileImageContainer>
-            {/* Add profile image in below element */}
-            {/* <ProfileImage src={}/> */}
-          </ProfileImageContainer>
-          <ProfileInfoContainer>
-            <ProfileName>{userName}</ProfileName>
-            <ProfileAddress>{account}</ProfileAddress>
-            <SubscribeButton onClick={handleSubscribe}>
-              {subscribeText}
-            </SubscribeButton>
-          </ProfileInfoContainer>
-        </ProfileInnerContainer>
-      </ProfileTopContainer>
-      <MainGridImageContainer>
-        <GridImageContainer>
-          {images.map((image) => {
-            return <GridImage key={image.id} src={image.urls.regular} />;
-          })}
-        </GridImageContainer>
-      </MainGridImageContainer>
-    </>
+    // <>
+    //   <ProfileTopContainer>
+    //     <ProfileInnerContainer>
+    //       <ProfileImageContainer>
+    //         {/* Add profile image in below element */}
+    //         {/* <ProfileImage src={}/> */}
+    //       </ProfileImageContainer>
+    //       <ProfileInfoContainer>
+    //         <ProfileName>{userName}</ProfileName>
+    //         <ProfileAddress>{account}</ProfileAddress>
+    //         <SubscribeButton onClick={handleSubscribe}>
+    //           {subscribeText}
+    //         </SubscribeButton>
+    //       </ProfileInfoContainer>
+    //     </ProfileInnerContainer>
+    //   </ProfileTopContainer>
+    //   <MainGridImageContainer>
+    //     <GridImageContainer>
+    //       {images.map((image) => {
+    //         return <GridImage key={image.id} src={image.urls.regular} />;
+    //       })}
+    //     </GridImageContainer>
+    //   </MainGridImageContainer>
+    // </>
+    <div id="profileGen">
+
+      <h1 id="name"><b>{userName}</b></h1>
+      <div id="add-subs">
+        <p id="address">{account}</p>
+        <button class="btn" id="subscribe">{subscribeText}</button>
+      </div>
+
+      <div id="image-container">
+        {images.map((image) => {
+             return <img class="profile-images" key={image.id} src={image.urls.regular} alt="img"></img> ;
+           })}
+
+      </div>
+
+    </div>
   );
 };
 
