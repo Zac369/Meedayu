@@ -60,18 +60,21 @@ export const SubscribeButton = styled.button`
 `;
 
 export const MainGridImageContainer = styled.div`
-  background: #efefef;
   margin: 0 auto;
-  width: 70vw;
+  width: 60vw;
   min-width: 50rem;
 `;
 
 export const GridImageContainer = styled.div`
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
 `;
 
 export const GridImage = styled.img`
-  height: 10rem;
-  width: 10rem;
+  height: 20rem;
+  width: 20rem;
   object-fit: cover;
 `;
