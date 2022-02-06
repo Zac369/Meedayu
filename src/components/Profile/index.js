@@ -17,7 +17,6 @@ const userName = "John Doe";
 const userAddress = "0xE...8c";
 const Profile = () => {
   const [images, setImages] = useState([]);
-  const numArr = [1, 2, 3, 4, 5];
 
   useEffect(() => {
     Axios.get(
@@ -31,14 +30,13 @@ const Profile = () => {
 
   return (
     <>
-      {console.log("images: ", [images])}
       <ProfileTopContainer>
         <ProfileInnerContainer>
           <ProfileImageContainer></ProfileImageContainer>
           <ProfileInfoContainer>
             <ProfileName>{userName}</ProfileName>
             <ProfileAddress>{userAddress}</ProfileAddress>
-            <SubscribeButton onClick={console.log("")}>
+            <SubscribeButton onClick={console.log("clicked")}>
               Subscribe
             </SubscribeButton>
           </ProfileInfoContainer>
