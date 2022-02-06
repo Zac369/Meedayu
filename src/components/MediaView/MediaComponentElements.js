@@ -11,8 +11,9 @@ export const Container = styled.div`
   display: grid;
   height: 95vh;
   grid-template-columns: 1fr 0.5fr;
-  grid-template-rows: 0.5fr 4fr 0.5fr;
+  grid-template-rows: 0.5fr 0.5fr 4fr 0.5fr;
   grid-template-areas:
+    "navbar navbar"
     "media profile"
     "media comments"
     "media inputComment";

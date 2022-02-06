@@ -17,7 +17,12 @@ import {
 } from "./ProfileElements";
 import NavBar from "../NavBar";
 
-const userName = "John Doe";
+const userDummyData = {
+    id: '0',
+    username: "John Doe",
+    address: "",
+    photo: 'https://i.pinimg.com/originals/23/4a/21/234a218c200ea9a5fc85bc9363cf2f2e.jpg'
+  }
 
 const Profile = () => {
   const [images, setImages] = useState([]);
@@ -49,6 +54,8 @@ const Profile = () => {
     return image;
   }
 
+
+
   return (
     // <>
     //   <ProfileTopContainer>
@@ -75,8 +82,8 @@ const Profile = () => {
     //   </MainGridImageContainer>
     // </>
     <div id="profileGen">
-
-      <h1 id="name"><b>{userName}</b></h1>
+      <NavBar user={userDummyData}/>
+      <h1 id="name"><b>{userDummyData.userName}</b></h1>
       <div id="add-subs">
         <p id="address">{account}</p>
         <button class="btn" id="subscribe">{subscribeText}</button>

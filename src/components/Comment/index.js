@@ -16,7 +16,7 @@ const Comment = (props) => {
 			<AcctCircle src={props.src} height="35px" width="35px"/>
 			</div>
 			<div style={{paddingRight: "1em"}}>
-			Username
+			{props.userName}
 			</div>
 			<Text>{props.comment}</Text>
 			<div style={{marginLeft: "auto", paddingRight: "1em"}}>

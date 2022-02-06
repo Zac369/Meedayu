@@ -3,6 +3,7 @@ import styled from "styled-components";
 import styles from "../../styles/styles.module.css";
 import AcctCircle from "../AcctCircle";
 import Comment from "../Comment";
+import NavBar from "../NavBar";
 import { useLocation } from 'react-router-dom'
 
 import axios from 'axios';
@@ -28,7 +29,8 @@ const dummyData = {
 const userDummyData = {
   id: '0',
   username: "John Doe",
-  address: ""
+  address: "",
+  photo: 'https://i.pinimg.com/originals/23/4a/21/234a218c200ea9a5fc85bc9363cf2f2e.jpg'
 }
 
 const MediaView = (props) => {
@@ -100,6 +102,7 @@ const MediaView = (props) => {
 
   return (
     <Container>
+    <NavBar user={userDummyData.username}/>
       <Media>
         <img src={img} className={styles.mediaImg}/>
         <button>Mint NFT</button>
