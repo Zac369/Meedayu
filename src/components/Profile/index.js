@@ -8,6 +8,7 @@ import {
   ProfileName,
   ProfileAddress,
   SubscribeButton,
+  MainGridImageContainer,
   GridImageContainer,
   GridImage,
 } from "./ProfileElements";
@@ -16,6 +17,7 @@ const userName = "John Doe";
 const userAddress = "0xE...8c";
 const Profile = () => {
   const [images, setImages] = useState([]);
+  const numArr = [1, 2, 3, 4, 5];
 
   useEffect(() => {
     Axios.get(
@@ -42,11 +44,13 @@ const Profile = () => {
           </ProfileInfoContainer>
         </ProfileInnerContainer>
       </ProfileTopContainer>
-      <GridImageContainer>
-        {images.map((image) => {
-          <GridImage src={image.urls.regular} />;
-        })}
-      </GridImageContainer>
+      <MainGridImageContainer>
+        <GridImageContainer>
+          {images.map((image) => {
+            return <GridImage key={image.id} src={image.urls.regular} />;
+          })}
+        </GridImageContainer>
+      </MainGridImageContainer>
     </>
   );
 };
