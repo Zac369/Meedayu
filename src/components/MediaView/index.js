@@ -4,6 +4,7 @@ import styles from "../../styles/styles.module.css";
 import AcctCircle from "../AcctCircle";
 import Comment from "../Comment";
 import axios from 'axios';
+//import testImage from '../../testImage.png';
 import { useState, useEffect } from 'react';
 import {
   Media,
@@ -12,6 +13,7 @@ import {
   Comments,
   InputComment,
 } from "./MediaComponentElements";
+import { LegendToggle } from "styled-icons/material";
 
 
 
@@ -28,16 +30,39 @@ const MediaView = () => {
   const [comments, setComments] = useState();
 
   useEffect(() => {
-    async function getComments() {
-      axios.get(``)
-        .then(res => {
-          const commentArray = res.data;
-          setComments(commentArray);
-        });
+    async function useDatabase() {
 
+      // get user request, should be sent after web3auth authenticated user
+      const params = new FormData();
+      params.append('request', 'getUser');
+      params.append('username', 'username4'); // username should be username#(first 8 chars of addy)
+      params.append('address', 'address123'); // the users addy
+      let response = await axios.post('http://localhost/projects/ethglobal2022/serverFiles/index.php', params);
+      let userID = response['data']['returned']; // the userID for this user, needed for other DB requests
+      console.log("UserID = " + userID);
+
+
+      // post photo request, store photo in the DB (i need an actual png in here to test it)
+      var params2 = new URLSearchParams();
+      params2.append('request', 'postPhoto');
+      params2.append('userID', userID); // the user id
+      params2.append('image', testImage); // the image file
+      params2.append('NFT', false); // true/false if the photo is minted
+      response = await axios.post('http://localhost/projects/ethglobal2022/serverFiles/index.php', params2);
+      console.log(response); // the userID for this user, needed for other DB requests*/
+
+
+      // get addresses request, currently broken - [2, 3, 4] is being sent to DB as [2, , 3, , 4]
+      var params3 = new FormData();
+      params3.append('request', 'getAddresses');
+      params3.append('userIds', [2, 3, 4]); // should include the userIDs for every user whose address you want
+      params3.append('length', 3); // should include the userIDs for every user whose address you want
+      response = await axios.post('http://localhost/projects/ethglobal2022/serverFiles/index.php', params3);
+      console.log(response);
+      
     }
 
-    getComments();
+    useDatabase();
 
   }, []);
 
