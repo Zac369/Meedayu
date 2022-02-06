@@ -21,15 +21,15 @@ const userName = "John Doe";
 
 const Profile = () => {
   const [images, setImages] = useState([]);
-  const [subscribeText, setSubscribeText] = useState("subscribe");
+  const [subscribeText, setSubscribeText] = useState("Subscribe");
   const { account } = useContext(UserContext);
 
 
   const handleSubscribe = () => {
-    if (subscribeText === "subscribe") {
-      setSubscribeText("unsubscribe");
-    } else if (subscribeText === "unsubscribe") {
-      setSubscribeText("subscribe");
+    if (subscribeText === "Subscribe") {
+      setSubscribeText("Unsubscribe");
+    } else if (subscribeText === "Unsubscribe") {
+      setSubscribeText("Subscribe");
     }
   };
   useEffect(() => {
@@ -78,8 +78,8 @@ const Profile = () => {
 
       <h1 id="name"><b>{userName}</b></h1>
       <div id="add-subs">
-        <p id="address">{account}</p>
-        <button class="btn" id="subscribe">{subscribeText}</button>
+        <p id="address">Your address is: {account}</p>
+        <button class="btn" id="subscribe" onClick={handleSubscribe}>{subscribeText}</button>
       </div>
 
       <div id="image-container">
