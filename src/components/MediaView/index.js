@@ -4,6 +4,7 @@ import styles from "../../styles/styles.module.css";
 import AcctCircle from "../AcctCircle";
 import Comment from "../Comment";
 import NavBar from "../NavBar";
+import Modal from '../Modal';
 import { useLocation } from 'react-router-dom'
 
 import axios from 'axios';
@@ -36,6 +37,7 @@ const userDummyData = {
 const MediaView = (props) => {
 
   const [comments, setComments] = useState();
+  const [show, setShow] = useState(false);
 
   const location = useLocation();
   const { img } = location.state;
@@ -103,7 +105,7 @@ const MediaView = (props) => {
   return (
     <div>
     <NavBar user={userDummyData.username}/>
-    <button id="mint-nft-btn" class="btn btn-success" key="1" type="primary">
+    <button onClick={() => setShow(true)} id="mint-nft-btn" class="btn btn-success" key="1" type="primary">
             Mint NFT
         </button>
     <div id="index-mediaview">
@@ -142,22 +144,13 @@ const MediaView = (props) => {
         </div>
 
       </div>
-      {/* <Profile>
-        <div className={styles.profileWrapper}>
-          {userDummyData.username}
-          <AcctCircle
-          src={dummyData.url}
-            profile="https://www.google.com"
-            width="50px"
-            height="50px"
-          />
-        </div>
-      </Profile>
-      <Comments>
-      {testCommentArray.map( comment => <Comment src={dummyData.url} userName={comment.userName} comment={comment.text} />)}
-      </Comments>
-      */}
     </div>
+
+      <Media>
+      { show ?
+        <Modal onClose={() => setShow(false)} show={show} /> :  true }      
+        
+      </Media>
     </div>
   );
 };
