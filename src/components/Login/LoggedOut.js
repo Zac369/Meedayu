@@ -1,5 +1,7 @@
 import React from 'react';
 
+import googleLogin from './images/web2-google-login.png';
+
 function LoggedOut({handleLogin, connectWalletAction}) {
 
     return (
@@ -9,6 +11,7 @@ function LoggedOut({handleLogin, connectWalletAction}) {
             <button onClick={() => handleLogin('google')} className="btn">
                 Web2Login Google
             </button>
+            <img src={googleLogin} alt="Web2Login Google"></img>
 
             <button onClick={() => handleLogin('facebook')} className="btn">
                 Web2Login Facebook
