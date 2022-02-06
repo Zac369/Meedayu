@@ -8,34 +8,45 @@ import {
   ProfileName,
   ProfileAddress,
   SubscribeButton,
-  ImageContainer,
+  GridImageContainer,
+  GridImage,
 } from "./ProfileElements";
 
+const userName = "John Doe";
+const userAddress = "0xE...8c";
 const Profile = () => {
   const [images, setImages] = useState([]);
-  useEffect(async () => {
-    const res = await Axios.get(
+
+  useEffect(() => {
+    Axios.get(
       "https://api.unsplash.com/photos/?client_id=l2U-D_PXXujBJoRiCCMCL2ifi_5ZJcK4AC0WH-A2lKk"
-    );
-      const data = res.data
-    // setting images
-    setImages(data);
-  }, [images]);
+    )
+      .then((res) => {
+        setImages(res.data);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <>
+      {console.log("images: ", [images])}
       <ProfileTopContainer>
         <ProfileInnerContainer>
           <ProfileImageContainer></ProfileImageContainer>
           <ProfileInfoContainer>
-            <ProfileName>John Doe</ProfileName>
-            <ProfileAddress>0x3...7c</ProfileAddress>
-            <SubscribeButton onClick={console.log("clicked")}>
+            <ProfileName>{userName}</ProfileName>
+            <ProfileAddress>{userAddress}</ProfileAddress>
+            <SubscribeButton onClick={console.log("")}>
               Subscribe
             </SubscribeButton>
           </ProfileInfoContainer>
         </ProfileInnerContainer>
       </ProfileTopContainer>
-      <ImageContainer></ImageContainer>
+      <GridImageContainer>
+        {images.map((image) => {
+          <GridImage src={image.urls.regular} />;
+        })}
+      </GridImageContainer>
     </>
   );
 };

@@ -55,5 +55,6 @@ export const SubscribeButton = styled.button`
   margin: 2rem 2rem;
 `;
 
-export const ImageContainer = styled.div`
-`;
+export const GridImageContainer = styled.div``;
+
+export const GridImage = styled.img``;
