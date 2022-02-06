@@ -4,6 +4,7 @@ import styles from "../../styles/styles.module.css";
 import AcctCircle from "../AcctCircle";
 import Comment from "../Comment";
 import NavBar from "../NavBar";
+import Modal from '../Modal';
 import { useLocation } from 'react-router-dom'
 
 import axios from 'axios';
@@ -36,6 +37,7 @@ const userDummyData = {
 const MediaView = (props) => {
 
   const [comments, setComments] = useState();
+  const [show, setShow] = useState(false);
 
   const location = useLocation();
   const { img } = location.state;
@@ -103,9 +105,14 @@ const MediaView = (props) => {
   return (
     <Container>
     <NavBar user={userDummyData.username}/>
+
       <Media>
+      { show ?
+        <Modal onClose={() => setShow(false)} show={show} /> :
         <img src={img} className={styles.mediaImg}/>
-        <button>Mint NFT</button>
+        
+        }
+        <button onClick={() => setShow(true)}>Mint NFT</button>
       </Media>
       <Profile>
         <div className={styles.profileWrapper}>
