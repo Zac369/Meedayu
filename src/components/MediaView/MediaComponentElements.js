@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Media = styled.div`
   background: yellow;
   grid-area: media;
+  max-width: 800px;
 `;
 
 export const Container = styled.div`

@@ -3,6 +3,8 @@ import styled from "styled-components";
 import styles from "../../styles/styles.module.css";
 import AcctCircle from "../AcctCircle";
 import Comment from "../Comment";
+import { useLocation } from 'react-router-dom'
+
 import axios from 'axios';
 //import testImage from '../../testImage.png';
 import { useState, useEffect } from 'react';
@@ -17,10 +19,12 @@ import { LegendToggle } from "styled-icons/material";
 
 
 
-const MediaView = () => {
+const MediaView = (props) => {
 
   const [comments, setComments] = useState();
   const [imgUrl, setImgUrl] = useState();
+  const location = useLocation();
+  const { img } = location.state;
 
   useEffect(() => {
 
@@ -30,7 +34,7 @@ const MediaView = () => {
           const commentArray = res.data;
           const image = res.data;
           setComments(commentArray);
-          setImgUrl(image);
+
         });
 
       }
@@ -68,6 +72,7 @@ const MediaView = () => {
     }
 
     useDatabase();
+    console.log(img);
 
   }, []);
 
@@ -85,7 +90,7 @@ const MediaView = () => {
   return (
     <Container>
       <Media>
-        <img src={imgUrl} />
+        <img src={img} className={styles.mediaImg}/>
       </Media>
       <Profile>
         <div className={styles.profileWrapper}>

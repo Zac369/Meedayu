@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { Link } from 'react-router-dom';
 import UserContext from "../../store/user-context";
 import Axios from "axios";
 import {
@@ -23,7 +24,6 @@ const Profile = () => {
   const [subscribeText, setSubscribeText] = useState("subscribe");
   const { account } = useContext(UserContext);
 
-  let userAddress;
 
   const handleSubscribe = () => {
     if (subscribeText === "subscribe") {
@@ -40,7 +40,14 @@ const Profile = () => {
         setImages(res.data);
       })
       .catch((err) => console.error(err));
+
+ 
   }, []);
+
+  const getImages = async () => {
+    let image = images[0].urls.regular;
+    return image;
+  }
 
   return (
     // <>
@@ -76,9 +83,17 @@ const Profile = () => {
       </div>
 
       <div id="image-container">
-        {images.map((image) => {
+        {/* {images.map((image) => {
              return <img class="profile-images" key={image.id} src={image.urls.regular} alt="img"></img> ;
-           })}
+           })} */}
+
+        {images.map((image) => {
+            return (
+              <Link to="/mediaview" state= {{img: image.urls.regular}}>
+                <img class="profile-images" key={image.id} src={image.urls.regular} alt="img"/>
+              </Link>
+              );
+          })}
 
       </div>
 
