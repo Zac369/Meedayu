@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import UserContext from '../../store/user-context';
+import UserContext from "../../store/user-context";
 import Axios from "axios";
 import {
   ProfileTopContainer,
@@ -9,11 +9,11 @@ import {
   ProfileName,
   ProfileAddress,
   SubscribeButton,
+  MainGridImageContainer,
   GridImageContainer,
   GridImage,
 } from "./ProfileElements";
-import NavBar from '../NavBar';
-
+import NavBar from "../NavBar";
 
 const userName = "John Doe";
 
@@ -31,10 +31,7 @@ const Profile = () => {
         setImages(res.data);
       })
       .catch((err) => console.error(err));
-      
   }, []);
-
-
 
   return (
     <>
@@ -43,16 +40,25 @@ const Profile = () => {
           <ProfileImageContainer></ProfileImageContainer>
           <ProfileInfoContainer>
             <ProfileName>{userName}</ProfileName>
+
             <ProfileAddress>{account}</ProfileAddress>
             <SubscribeButton onClick={console.log("")}>
+
+            <ProfileAddress>{userAddress}</ProfileAddress>
+            <SubscribeButton onClick={console.log("clicked")}>
+
               Subscribe
             </SubscribeButton>
           </ProfileInfoContainer>
         </ProfileInnerContainer>
       </ProfileTopContainer>
-      <GridImageContainer>
-        {images.map( image => <GridImage src={image.urls.regular} />)}
-      </GridImageContainer>
+      <MainGridImageContainer>
+        <GridImageContainer>
+          {images.map((image) => {
+            return <GridImage key={image.id} src={image.urls.regular} />;
+          })}
+        </GridImageContainer>
+      </MainGridImageContainer>
     </>
   );
 };

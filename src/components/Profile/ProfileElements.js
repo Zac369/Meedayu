@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const ProfileTopContainer = styled.div`
   height: 30rem;
   width: 100%;
-  border: 2px solid black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,6 +54,18 @@ export const SubscribeButton = styled.button`
   margin: 2rem 2rem;
 `;
 
-export const GridImageContainer = styled.div``;
+export const MainGridImageContainer = styled.div`
+  background: #efefef;
+  margin: 0 auto;
+  width: 70vw;
+  min-width: 50rem;
+`;
 
-export const GridImage = styled.img``;
+export const GridImageContainer = styled.div`
+  display: grid;
+`;
+
+export const GridImage = styled.img`
+  height: 10rem;
+  width: 10rem;
+`;
