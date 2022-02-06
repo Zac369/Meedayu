@@ -68,7 +68,9 @@
 }
 
 #login-logo{
-  margin-right: 10px;
+  width: 40px;
+  height: 30px;
+  margin-left: 18px;
 }
 
 #login-div {
@@ -130,3 +132,10 @@
   background: #efefef; */
 }
 
+/* LOGGED IN */
+
+#logout-btn{
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+}

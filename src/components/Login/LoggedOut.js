@@ -1,19 +1,14 @@
 import React from 'react';
 
-import googleLogin from './images/web2-google-login.png';
-import facebookLogin from './images/web2-facebook-login.png';
+import NavBar from '../NavBar';
+
 
 function LoggedOut({handleLogin, connectWalletAction}) {
 
-    return (        
-        <div>
+    return (   
 
-            <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#">
-                <img id="login-logo" src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt=""></img>
-                Meedayu Login
-            </a>
-            </nav>
+        <div>
+            <NavBar />
 
             <div id="login-div">
                 <button onClick={() => handleLogin('google')} class="btn btn-lg btn-google btn-block login-buttons" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button> 

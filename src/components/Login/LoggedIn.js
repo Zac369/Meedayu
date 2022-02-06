@@ -15,12 +15,12 @@ function LoggedIn({handleLogout, walletInfo}) {
 
  return (
 
-    <div>
-        <button key="1" type="primary" onClick={()=>handleLogout()}>
+    <div>        
+        <ProfilePage />
+        <button id="logout-btn" class="btn btn-danger" key="1" type="primary" onClick={()=>handleLogout()}>
             Logout 
         </button>
-        <ProfilePage />
-  </div>
+    </div>
  )
 }
 

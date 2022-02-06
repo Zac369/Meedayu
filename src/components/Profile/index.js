@@ -81,30 +81,32 @@ const Profile = () => {
     //     </GridImageContainer>
     //   </MainGridImageContainer>
     // </>
-    <div id="profileGen">
-      <NavBar user={userDummyData}/>
-      <h1 id="name"><b>{userDummyData.userName}</b></h1>
-      <div id="add-subs">
-        <p id="address">Your address is: {account}</p>
-        <button class="btn" id="subscribe" onClick={handleSubscribe}>{subscribeText}</button>
+      <div>
+        
+        <NavBar user={userDummyData}/>
+        <div  id="profileGen">
+        <h1 id="name"><b>{userDummyData.userName}</b></h1>
+          <div id="add-subs">
+          <p id="address"><i>Your address is:</i> <b>{account}</b></p>
+            <button class="btn" id="subscribe" onClick={handleSubscribe}>{subscribeText}</button>
+          </div>
+
+          <div id="image-container">
+            {/* {images.map((image) => {
+                return <img class="profile-images" key={image.id} src={image.urls.regular} alt="img"></img> ;
+              })} */}
+
+            {images.map((image) => {
+                return (
+                  <Link to="/mediaview" state= {{img: image.urls.regular}}>
+                    <img class="profile-images" key={image.id} src={image.urls.regular} alt="img"/>
+                  </Link>
+                  );
+              })}
+
+          </div>
+        </div>
       </div>
-
-      <div id="image-container">
-        {/* {images.map((image) => {
-             return <img class="profile-images" key={image.id} src={image.urls.regular} alt="img"></img> ;
-           })} */}
-
-        {images.map((image) => {
-            return (
-              <Link to="/mediaview" state= {{img: image.urls.regular}}>
-                <img class="profile-images" key={image.id} src={image.urls.regular} alt="img"/>
-              </Link>
-              );
-          })}
-
-      </div>
-
-    </div>
   );
 };
 
