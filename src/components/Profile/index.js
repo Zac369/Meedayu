@@ -20,7 +20,7 @@ const userName = "John Doe";
 
 const Profile = () => {
   const [images, setImages] = useState([]);
-  const ctx = useContext(UserContext);
+  const {account} = useContext(UserContext);
 
   let userAddress;
   let profilePic;
@@ -44,12 +44,20 @@ const Profile = () => {
             {/* <ProfileImage src={}/> */}
           </ProfileImageContainer>
           <ProfileInfoContainer>
+
             <ProfileName>{userName}</ProfileName>
+
+            <ProfileAddress>{account}</ProfileAddress>
+            <SubscribeButton onClick={console.log("")} />
+
             <ProfileAddress>{userAddress}</ProfileAddress>
             <SubscribeButton onClick={console.log("clicked")}>
+
               Subscribe
             </SubscribeButton>
+
           </ProfileInfoContainer>
+
         </ProfileInnerContainer>
       </ProfileTopContainer>
       <MainGridImageContainer>

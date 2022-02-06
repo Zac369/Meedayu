@@ -1,40 +1,37 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 
 
 
 
 const UserContext = React.createContext({
 	isLoggedIn: false,
+	account: '',
+	setAccount: () => {},
 	
 });
 
 
 export const UserContextProvider = (props) => {
-	const [account, setAccount] = useState();
+	const [account, setAccount] = useState('temp addy');
 	const [loggedIn, setLoggedIn] = useState(false);
+
+	const value = useMemo(
+		() => ({ account, setAccount }),
+		[account]
+	);
 
 	useEffect(() => {
 
 
 
-
 	}, []);
 
-	const loginHandler = (props) => {
-		setAccount(props);
-		setLoggedIn(true);
-	};
 
 
 
 	return (
 		<UserContext.Provider
-			value={{
-				account: account
-
-
-
-			}}
+			value={value}
 		>
 			{props.children}
 		</UserContext.Provider>
