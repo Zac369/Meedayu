@@ -37,19 +37,24 @@ const Profile = () => {
     <>
       <ProfileTopContainer>
         <ProfileInnerContainer>
+
           <ProfileImageContainer></ProfileImageContainer>
+
           <ProfileInfoContainer>
+
             <ProfileName>{userName}</ProfileName>
 
             <ProfileAddress>{account}</ProfileAddress>
-            <SubscribeButton onClick={console.log("")}>
+            <SubscribeButton onClick={console.log("")} />
 
             <ProfileAddress>{userAddress}</ProfileAddress>
             <SubscribeButton onClick={console.log("clicked")}>
 
               Subscribe
             </SubscribeButton>
+
           </ProfileInfoContainer>
+
         </ProfileInnerContainer>
       </ProfileTopContainer>
       <MainGridImageContainer>
