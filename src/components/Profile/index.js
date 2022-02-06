@@ -5,6 +5,7 @@ import {
   ProfileTopContainer,
   ProfileInnerContainer,
   ProfileImageContainer,
+  ProfileImage,
   ProfileInfoContainer,
   ProfileName,
   ProfileAddress,
@@ -22,6 +23,7 @@ const Profile = () => {
   const ctx = useContext(UserContext);
 
   let userAddress;
+  let profilePic;
 
   useEffect(() => {
     Axios.get(
@@ -37,7 +39,10 @@ const Profile = () => {
     <>
       <ProfileTopContainer>
         <ProfileInnerContainer>
-          <ProfileImageContainer></ProfileImageContainer>
+          <ProfileImageContainer>
+            {/* Add profile image in below element */}
+            {/* <ProfileImage src={}/> */}
+          </ProfileImageContainer>
           <ProfileInfoContainer>
             <ProfileName>{userName}</ProfileName>
             <ProfileAddress>{userAddress}</ProfileAddress>

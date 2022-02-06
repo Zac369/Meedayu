@@ -17,10 +17,15 @@ export const ProfileInnerContainer = styled.div`
 `;
 
 export const ProfileImageContainer = styled.div`
-  height: 12rem;
-  width: 12rem;
   border-radius: 50%;
   background-color: brown;
+`;
+
+export const ProfileImage = styled.img`
+  height: 12rem;
+  width: 12rem;
+
+  object-fit: cover;
 `;
 
 export const ProfileInfoContainer = styled.div`
@@ -68,4 +73,5 @@ export const GridImageContainer = styled.div`
 export const GridImage = styled.img`
   height: 10rem;
   width: 10rem;
+  object-fit: cover;
 `;
