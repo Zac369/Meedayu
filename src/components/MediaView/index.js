@@ -110,7 +110,9 @@ const MediaView = (props) => {
         </button>
     <div id="index-mediaview">
       <div id="media-left-part">
-        <img id="media-img" src={img} alt="Image"></img>
+      { show ?
+        <Modal onClose={() => setShow(false)} show={show} /> :  <img id="media-img" src={img} alt="Image"></img> }      
+        
       </div>
       <div id="media-right-part">
         <div id="profile">
@@ -146,11 +148,6 @@ const MediaView = (props) => {
       </div>
     </div>
 
-      <Media>
-      { show ?
-        <Modal onClose={() => setShow(false)} show={show} /> :  true }      
-        
-      </Media>
     </div>
   );
 };
