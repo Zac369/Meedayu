@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import UserContext from '../../store/user-context';
 import Axios from "axios";
 import {
   ProfileTopContainer,
@@ -13,10 +14,14 @@ import {
 } from "./ProfileElements";
 import NavBar from '../NavBar';
 
+
 const userName = "John Doe";
-const userAddress = "0xE...8c";
+
 const Profile = () => {
   const [images, setImages] = useState([]);
+  const ctx = useContext(UserContext);
+
+  let userAddress;
 
   useEffect(() => {
     Axios.get(
@@ -26,7 +31,10 @@ const Profile = () => {
         setImages(res.data);
       })
       .catch((err) => console.error(err));
+      
   }, []);
+
+
 
   return (
     <>
@@ -44,9 +52,7 @@ const Profile = () => {
         </ProfileInnerContainer>
       </ProfileTopContainer>
       <GridImageContainer>
-        {images.map((image) => {
-          <GridImage src={image.urls.regular} />;
-        })}
+        {images.map( image => <GridImage src={image.urls.regular} />)}
       </GridImageContainer>
     </>
   );

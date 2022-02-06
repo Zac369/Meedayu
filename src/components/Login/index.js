@@ -1,8 +1,9 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useContext } from "react";
 import OpenLogin from "@toruslabs/openlogin";
 import Web3 from "web3";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
+import UserContext from '../../store/user-context';
 
 
 import { POSClient, use } from "@maticnetwork/maticjs"
@@ -71,6 +72,8 @@ function LoginLogic() {
   const [walletInfo, setUserAccountInfo] = useState(null);
   const [level, setChainLevel] = useState("l2"); // "l1" or "l2"
 
+  const ctx = useContext(UserContext);
+
   const checkIfWalletIsConnected = async () => {
     try {
       const { ethereum } = window;
@@ -87,6 +90,7 @@ function LoginLogic() {
           const address = accounts[0];
           console.log('Found an authorized account:', address);
           setUserAccountInfo({address});
+          ctx.loginHandler(address);
         } else {
           console.log('No authorized account found');
         }
