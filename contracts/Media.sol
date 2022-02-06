@@ -1,7 +1,8 @@
-pragma solidity ^0.8.10;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
 
-import "@openzeppelin/contract/token/ERC721/ERC721.sol";
-import "@openzeppelin/contract/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
 contract Media is ERC721URIStorage {
 
@@ -19,5 +20,8 @@ contract Media is ERC721URIStorage {
 		return newItemId;
 	}
 
+	function getTokenCounter() public view returns (uint) {
+		return tokenCounter;
+	}
 
 }
