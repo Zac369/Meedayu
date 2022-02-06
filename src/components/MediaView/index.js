@@ -17,12 +17,24 @@ import {
 } from "./MediaComponentElements";
 import { LegendToggle } from "styled-icons/material";
 
+const dummyData = {
+  id: '12', 
+  userID: '6', 
+  url: 'https://i.pinimg.com/originals/23/4a/21/234a218c200ea9a5fc85bc9363cf2f2e.jpg', 
+  timestamp: '2022-02-06 13:28:30', 
+  NFT: '0'
+};
 
+const userDummyData = {
+  id: '0',
+  username: "John Doe",
+  address: ""
+}
 
 const MediaView = (props) => {
 
   const [comments, setComments] = useState();
-  const [imgUrl, setImgUrl] = useState();
+
   const location = useLocation();
   const { img } = location.state;
 
@@ -31,8 +43,8 @@ const MediaView = (props) => {
     async function getComments() {
       axios.get(``)
         .then(res => {
-          const commentArray = res.data;
-          const image = res.data;
+          const commentArray = res.data.comments;
+          const followersArray = res.data.following;
           setComments(commentArray);
 
         });
@@ -77,25 +89,26 @@ const MediaView = (props) => {
   }, []);
 
   const testCommentArray = [
-    "inb4 booba comments",
-    "looks dope!",
-    "I want to buy this NFT",
-    "When's your next stream?",
-    "Here's a really long comment for the sake of having one that is really long",
-    "lololololol",
-    "booba > life"
+    {userName: "John Doe", text: "inb4 booba comments"} ,
+    {userName: "John Doe", text: "looks dope!"},
+    {userName: "John Doe", text: "I want to buy this NFT"},
+    {userName: "John Doe", text: "When's your next stream?"},
+    {userName: "John Doe", text: "Here's a really long comment for the sake of having one that is really long"},
+    {userName: "John Doe", text: "lololololol"},
+    {userName: "John Doe", text: "booba > life"}
   ]
-
 
   return (
     <Container>
       <Media>
         <img src={img} className={styles.mediaImg}/>
+        <button>Mint NFT</button>
       </Media>
       <Profile>
         <div className={styles.profileWrapper}>
-          Username
+          {userDummyData.username}
           <AcctCircle
+          src={dummyData.url}
             profile="https://www.google.com"
             width="50px"
             height="50px"
@@ -103,10 +116,10 @@ const MediaView = (props) => {
         </div>
       </Profile>
       <Comments>
-      {testCommentArray.map( comment => <Comment comment={comment} />)}
+      {testCommentArray.map( comment => <Comment src={dummyData.url} userName={comment.userName} comment={comment.text} />)}
       </Comments>
       <div className={styles.commentInputWrapper}>
-        <AcctCircle width="35px" height="35px" />
+        <AcctCircle src={dummyData.url} profile="https://www.google.com" width="35px" height="35px"/>
         <InputComment type="text" placeholder="Add a comment..." style={{width: "100%", marginRight: "1em"}}></InputComment>
       </div>
     </Container>

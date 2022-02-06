@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import styles from "../styles/styles.module.css";
 
 
 const AcctCircle = (props) => {
@@ -15,7 +16,7 @@ const AcctCircle = (props) => {
 	return (
 		<a href={props.profile}>
 			<Circle width={props.width} height={props.height}>
-				<img src={props.src} alt={props.alt} />
+				<img src={props.src} alt={props.alt} className={styles.profileImg}/>
 			</Circle>
 		</a>
 	)
