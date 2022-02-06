@@ -45,6 +45,7 @@ export const ProfileAddress = styled.div`
   padding: 0.5rem 1rem;
   font-size: 0.8rem;
   border-radius: 10px;
+  background: #efefef;
 `;
 
 export const SubscribeButton = styled.button`
@@ -59,7 +60,6 @@ export const SubscribeButton = styled.button`
 `;
 
 export const MainGridImageContainer = styled.div`
-  background: #efefef;
   margin: 0 auto;
   width: 60vw;
   min-width: 50rem;
