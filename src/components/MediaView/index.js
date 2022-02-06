@@ -101,13 +101,48 @@ const MediaView = (props) => {
   ]
 
   return (
-    <Container>
+    <div>
     <NavBar user={userDummyData.username}/>
-      <Media>
-        <img src={img} className={styles.mediaImg}/>
-        <button>Mint NFT</button>
-      </Media>
-      <Profile>
+    <button id="mint-nft-btn" class="btn btn-success" key="1" type="primary">
+            Mint NFT
+        </button>
+    <div id="index-mediaview">
+      <div id="media-left-part">
+        <img id="media-img" src={img} alt="Image"></img>
+      </div>
+      <div id="media-right-part">
+        <div id="profile">
+          <img src={dummyData.url} class="avatar" alt="avatar"></img>
+          <p><b>{userDummyData.username}</b></p>
+        </div>
+        <div id="comments">
+          <div id="comments-title">
+            <h3><b>Comments section</b></h3>
+          </div>
+        {testCommentArray.map( (comment) => { return  <div id="comment">
+                          <div>
+                            <img class="comments-avatar" src={dummyData.url} />
+                          </div>
+                          <div>
+                          <p>{comment.userName}</p>
+                          </div>
+                          <div>
+                            <p>{comment.text}</p>
+                          </div>
+                          <div>
+                            <i class="far fa-heart"></i>
+                          </div>            
+                        </div>
+        })}
+        
+        </div>
+        <div id="comment-something">
+          <img class="comments-avatar" src={dummyData.url} />
+          <input type="textarea" placeholder="Add a comment..."/>
+        </div>
+
+      </div>
+      {/* <Profile>
         <div className={styles.profileWrapper}>
           {userDummyData.username}
           <AcctCircle
@@ -121,11 +156,9 @@ const MediaView = (props) => {
       <Comments>
       {testCommentArray.map( comment => <Comment src={dummyData.url} userName={comment.userName} comment={comment.text} />)}
       </Comments>
-      <div className={styles.commentInputWrapper}>
-        <AcctCircle src={dummyData.url} profile="https://www.google.com" width="35px" height="35px"/>
-        <InputComment type="text" placeholder="Add a comment..." style={{width: "100%", marginRight: "1em"}}></InputComment>
-      </div>
-    </Container>
+      */}
+    </div>
+    </div>
   );
 };
 
