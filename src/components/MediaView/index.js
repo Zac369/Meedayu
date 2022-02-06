@@ -15,24 +15,19 @@ import {
 
 
 
-
-
-
-const showComments = (props) => {
-  return <Comment comment={props} />
-}
-
-
 const MediaView = () => {
 
   const [comments, setComments] = useState();
+  const [imgUrl, setImgUrl] = useState();
 
   useEffect(() => {
     async function getComments() {
       axios.get(``)
         .then(res => {
           const commentArray = res.data;
+          const image = res.data;
           setComments(commentArray);
+          setImgUrl(image);
         });
 
     }
@@ -54,7 +49,9 @@ const MediaView = () => {
 
   return (
     <Container>
-      <Media>Media goes here</Media>
+      <Media>
+        <img src={imgUrl} />
+      </Media>
       <Profile>
         <div className={styles.profileWrapper}>
           Username
@@ -66,7 +63,7 @@ const MediaView = () => {
         </div>
       </Profile>
       <Comments>
-      {testCommentArray.map( comment => showComments(comment))}
+      {testCommentArray.map( comment => <Comment comment={comment} />)}
       </Comments>
       <div className={styles.commentInputWrapper}>
         <AcctCircle width="35px" height="35px" />
