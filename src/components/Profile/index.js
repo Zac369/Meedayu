@@ -30,11 +30,7 @@ const Profile = () => {
 
   return (
     <>
-<<<<<<< HEAD
-      <NavBar />
-=======
       {console.log("images: ", [images])}
->>>>>>> 13d1a25e84191f40d2fea3d1fb2a4476c7718371
       <ProfileTopContainer>
         <ProfileInnerContainer>
           <ProfileImageContainer></ProfileImageContainer>
